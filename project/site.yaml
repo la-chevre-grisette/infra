@@ -1,0 +1,7 @@
+---
+- name: "La chèvre Grisette"
+  hosts: "127.0.0.1"
+  connection: "local"
+
+  roles:
+    - "wordpress"

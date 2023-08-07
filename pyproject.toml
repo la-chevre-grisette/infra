@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "la-chevre-grisette"
+version = "1.0.0"
+description = "La chèvre Grisette"
+authors = ["La chèvre Grisette <bonjour@lachevregrisette.fr>"]
+license = "CC-BY-SA"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+ansible-runner = "^2.3.3"
+ansible = "^8.2.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+ruff = "^0.0.282"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

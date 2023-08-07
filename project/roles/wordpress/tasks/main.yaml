@@ -1,0 +1,4 @@
+---
+- name: "Show welcome message"
+  ansible.builtin.debug:
+    msg: "Welcome !"
