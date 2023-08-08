@@ -7,15 +7,17 @@
 ## Pré-requis
 
 * Un nom de domaine chez OVH.
-* Une base de donnée MySQL >= 5.7 chez OVH (qui fait partie de l'offre d'hébergement).
+* Une base de donnée MySQL >= 5.7 chez OVH (qui fait partie de l'offre d'hébergement) avec `utf8mb4_general_ci` comme encodage (**attention ce n'est pas le cas par défaut !**).
 * Activer l'accès SFTP.
 
 ## Préparation
 
 Ce projet nécessite les logiciels suivants:
 
+* [`rclone`](https://rclone.org/)
 * [`pyenv`](https://github.com/pyenv/pyenv)
 * [`poetry`](https://github.com/python-poetry/poetry)
+  * [`poetry-plugin-dotenv`](https://github.com/volopivoshenko/poetry-plugin-dotenv)
 
 Une fois tous ces éléments installés et configurés, installer les dépendances:
 

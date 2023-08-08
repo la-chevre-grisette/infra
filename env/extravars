@@ -1,0 +1,24 @@
+---
+# Logs
+debug_enabled: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_DEBUG_ENABLED', default=False) }}"
+
+# OVH SFTP
+ovh_sftp_hostname: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_OVH_SFTP_HOSTNAME', default=Undefined) }}"
+ovh_sftp_username: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_OVH_SFTP_USERNAME', default=Undefined) }}"
+ovh_sftp_password: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_OVH_SFTP_PASSWORD', default=Undefined) }}"
+
+# Database configuration
+database_name: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_DB_NAME', default=Undefined) }}"
+database_username: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_DB_USERNAME', default=Undefined) }}"
+database_password: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_DB_PASSWORD', default=Undefined) }}"
+database_hostname: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_DB_HOSTNAME', default=Undefined) }}"
+
+# Wordpress configuration
+wordpress_config_auth_key: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_WP_AUTH_KEY', default=Undefined) }}"
+wordpress_config_secure_auth_key: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_WP_SECURE_AUTH_KEY', default=Undefined) }}"
+wordpress_config_logged_in_key: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_WP_LOGGED_IN_KEY', default=Undefined) }}"
+wordpress_config_nonce_key: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_WP_NONCE_KEY', default=Undefined) }}"
+wordpress_config_auth_salt: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_WP_AUTH_SALT', default=Undefined) }}"
+wordpress_config_secure_auth_salt: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_WP_SECURE_AUTH_SALT', default=Undefined) }}"
+wordpress_config_logged_in_salt: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_WP_LOGGED_IN_SALT', default=Undefined) }}"
+wordpress_config_nonce_salt: "{{ lookup('ansible.builtin.env', 'CHEVRE_GRISETTE_WP_NONCE_SALT', default=Undefined) }}"

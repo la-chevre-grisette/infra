@@ -1,0 +1,3 @@
+---
+wordpress_archive_filename: "wordpress-{{ wordpress_version }}.tar.gz"
+wordpress_download_url: "https://wordpress.org/{{ wordpress_archive_filename }}"
