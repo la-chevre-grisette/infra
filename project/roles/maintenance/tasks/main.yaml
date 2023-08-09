@@ -1,0 +1,31 @@
+---
+- name: "Création du répertoire de construction de maintenance"
+  ansible.builtin.file:
+    path: "{{ setup_build_dir.path }}/maintenance"
+    state: "directory"
+    mode: "0755"
+  register: "maintenance_build_dir"
+
+- name: "Préparation de la page de maintenance"
+  ansible.builtin.template:
+    src: "index.html.j2"
+    dest: "{{ maintenance_build_dir.path }}/index.html"
+    mode: "0644"
+
+- name: "Préparation de la page htaccess"
+  ansible.builtin.template:
+    src: "htaccess.j2"
+    dest: "{{ maintenance_build_dir.path }}/.htaccess"
+    mode: "0644"
+
+- name: "Copie de la page de maintenance sur OVH"
+  ansible.builtin.shell: |
+    rclone copy "{{ maintenance_build_dir.path }}" ovh:/home/{{ ovh_sftp_username }}/www
+  environment:
+    RCLONE_CONFIG_OVH_TYPE: "sftp"
+    RCLONE_CONFIG_OVH_SHELL_TYPE: "unix"
+    RCLONE_CONFIG_OVH_DISABLE_HASHCHECK: "true"
+    RCLONE_CONFIG_OVH_HOST: "{{ ovh_sftp_hostname }}"
+    RCLONE_CONFIG_OVH_USER: "{{ ovh_sftp_username }}"
+    RCLONE_CONFIG_OVH_PASS: "{{ setup_sftp_password_for_rclone.stdout }}"
+  register: "maintenance_rclone_copy_cmd"

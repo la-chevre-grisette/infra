@@ -1,26 +1,4 @@
 ---
-- name: "Obfuscation du mot de passe pour rclone"
-  ansible.builtin.shell: |
-    rclone obscure "{{ ovh_sftp_password }}"
-  register: "ovh_sftp_password_for_rclone"
-
-- name: "[DEBUG] Information sur la connection SFTP"
-  ansible.builtin.debug:
-    msg:
-      - "URL SFTP: {{ ovh_sftp_username }}@{{ ovh_sftp_hostname }}"
-      - "Mot de passe SFTP: {{ ovh_sftp_password }}"
-      - "Mot de passe SFTP (obfuscé): {{ ovh_sftp_password_for_rclone.stdout }}"
-  when: "debug_enabled"
-
-- name: "[DEBUG] Information sur la base de donnée"
-  ansible.builtin.debug:
-    msg:
-      - "Nom d'hôte: {{ database_hostname }}"
-      - "Nom de la base de donnée: {{ database_name }}"
-      - "Utilisateur de la base de donnée: {{ database_username }}"
-      - "Mot de passe: {{ database_password }}"
-  when: "debug_enabled"
-
 - name: "[DEBUG] Information sur la configuration"
   ansible.builtin.debug:
     msg:
@@ -34,21 +12,21 @@
       - "NONCE_SALT: {{ wordpress_config_nonce_salt }}"
   when: "debug_enabled"
 
-- name: "Création d'un répertoire de travail"
-  ansible.builtin.tempfile:
+- name: "Création du répertoire de construction de wordpress"
+  ansible.builtin.file:
+    path: "{{ setup_build_dir.path }}/wordpress"
     state: "directory"
-    prefix: "chevregrisette."
-    suffix: "wordpress"
+    mode: "0755"
   register: "wordpress_build_dir"
 
-- name: "Création du répertoire des sources"
+- name: "Création du répertoire des sources de wordpress"
   ansible.builtin.file:
     path: "{{ wordpress_build_dir.path }}/sources"
     state: "directory"
     mode: "0755"
   register: "wordpress_sources_dir"
 
-- name: "Création du répertoire de distribution"
+- name: "Création du répertoire de distribution de wordpress"
   ansible.builtin.file:
     path: "{{ wordpress_build_dir.path }}/dist"
     state: "directory"
@@ -78,19 +56,19 @@
 
     - name: "Copie de wordpress sur OVH"
       ansible.builtin.shell: |
-        rclone copy --progress "{{ wordpress_dist_dir.path }}" ovh:/home/{{ ovh_sftp_username }}/blog_prod
+        rclone copy "{{ wordpress_dist_dir.path }}" ovh:/home/{{ ovh_sftp_username }}/blog_prod
       environment:
         RCLONE_CONFIG_OVH_TYPE: "sftp"
         RCLONE_CONFIG_OVH_SHELL_TYPE: "unix"
         RCLONE_CONFIG_OVH_DISABLE_HASHCHECK: "true"
         RCLONE_CONFIG_OVH_HOST: "{{ ovh_sftp_hostname }}"
         RCLONE_CONFIG_OVH_USER: "{{ ovh_sftp_username }}"
-        RCLONE_CONFIG_OVH_PASS: "{{ ovh_sftp_password_for_rclone.stdout }}"
-      register: "wordpress_rclone_sync_cmd"
+        RCLONE_CONFIG_OVH_PASS: "{{ setup_sftp_password_for_rclone.stdout }}"
+      register: "wordpress_rclone_copy_cmd"
 
     - name: "Retour de la commande de copie"
       ansible.builtin.debug:
-        msg: "{{ wordpress_rclone_sync_cmd.stdout_lines }}"
+        msg: "{{ wordpress_rclone_copy_cmd.stdout_lines }}"
   always:
     - name: "Nettoyage des répertoires"
       ansible.builtin.file:
