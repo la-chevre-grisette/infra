@@ -78,7 +78,7 @@
 
     - name: "Copie de wordpress sur OVH"
       ansible.builtin.shell: |
-        rclone sync "{{ wordpress_dist_dir.path }}" ovh:/home/{{ ovh_sftp_username }}/blog_prod
+        rclone copy --progress "{{ wordpress_dist_dir.path }}" ovh:/home/{{ ovh_sftp_username }}/blog_prod
       environment:
         RCLONE_CONFIG_OVH_TYPE: "sftp"
         RCLONE_CONFIG_OVH_SHELL_TYPE: "unix"
