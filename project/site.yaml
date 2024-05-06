@@ -6,4 +6,4 @@
   roles:
     - "setup"
     - "maintenance"
-    - "wordpress"
+    #- "wordpress"
