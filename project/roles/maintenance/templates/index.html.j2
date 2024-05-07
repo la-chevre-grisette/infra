@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>La Ch&#232;vre Grisette</title>
+    <title>La Ch&#232;vre Grisette - Elevage caprin avec transformation fromag&#232;re</title>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -58,8 +58,12 @@
             text-transform: uppercase;
         }
 
-        .products div {
-            font-size: 14px;
+        .products {
+            background-color: #322c2c;
+
+            div {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -69,9 +73,9 @@
         <video src="https://media.githubusercontent.com/media/la-chevre-grisette/art/main/videos/background.mp4"
             autoplay loop muted playsinline uk-cover></video>
 
-        <div id="card" class="uk-inline uk-container-expand uk-padding-small">
+        <div id="card" class="uk-inline uk-container-expand">
             <!-- Logo -->
-            <div class="uk-grid uk-flex-middle" uk-grid>
+            <div class="uk-grid uk-flex-middle uk-padding" uk-grid>
                 <div class="uk-width-2-3@s">
                     <h1>Découvrez nos produits</h1>
                 </div>
@@ -83,46 +87,42 @@
             </div>
 
             <!-- La Carte -->
-            <div class="products uk-grid uk-child-width-1-1@s uk-text-left" uk-grid>
-                <div>
-                    <div>
-                        <h2>Les Fromages</h2>
+            <div class="products uk-padding uk-margin-bottom uk-flex uk-flex-column uk-light uk-text-left">
+                <div class="uk-margin-bottom">
+                    <h2>Les Fromages</h2>
 
-                        <div class="uk-grid uk-grid-collapse" uk-grid>
-                            <div class="uk-width-expand" uk-leader>Crottin nature</div>
-                            <div>3,50 €</div>
-                        </div>
-                        <div class="uk-grid uk-grid-collapse" uk-grid>
-                            <div class="uk-width-expand" uk-leader>Crottin aromatis&#233;</div>
-                            <div>4,00 €</div>
-                        </div>
-                        <div class="uk-grid uk-grid-collapse" uk-grid>
-                            <div class="uk-width-expand" uk-leader>Crottin demi-sec</div>
-                            <div>3,50 €</div>
-                        </div>
-                        <div class="uk-grid uk-grid-collapse" uk-grid>
-                            <div class="uk-width-expand" uk-leader>Crottin sec</div>
-                            <div>3,50 €</div>
-                        </div>
-                        <div class="uk-grid uk-grid-collapse" uk-grid>
-                            <div class="uk-width-expand" uk-leader>Buchette</div>
-                            <div>6,90 €</div>
-                        </div>
+                    <div class="uk-grid uk-grid-collapse" uk-grid>
+                        <div class="uk-width-expand" uk-leader>Crottin nature</div>
+                        <div>3,50 €</div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse" uk-grid>
+                        <div class="uk-width-expand" uk-leader>Crottin aromatis&#233;</div>
+                        <div>4,00 €</div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse" uk-grid>
+                        <div class="uk-width-expand" uk-leader>Crottin demi-sec</div>
+                        <div>3,50 €</div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse" uk-grid>
+                        <div class="uk-width-expand" uk-leader>Crottin sec</div>
+                        <div>3,50 €</div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse" uk-grid>
+                        <div class="uk-width-expand" uk-leader>Buchette</div>
+                        <div>6,90 €</div>
                     </div>
                 </div>
 
                 <div>
-                    <div>
-                        <h2>Les Yaourts</h2>
+                    <h2>Les Yaourts</h2>
 
-                        <div class="uk-grid uk-grid-collapse" uk-grid>
-                            <div class="uk-width-expand" uk-leader>Nature</div>
-                            <div>1,00 €</div>
-                        </div>
-                        <div class="uk-grid uk-grid-collapse" uk-grid>
-                            <div class="uk-width-expand" uk-leader>Sur lit de confiture</div>
-                            <div>1,20 €</div>
-                        </div>
+                    <div class="uk-grid uk-grid-collapse" uk-grid>
+                        <div class="uk-width-expand" uk-leader>Nature</div>
+                        <div>1,00 €</div>
+                    </div>
+                    <div class="uk-grid uk-grid-collapse" uk-grid>
+                        <div class="uk-width-expand" uk-leader>Sur lit de confiture</div>
+                        <div>1,20 €</div>
                     </div>
                 </div>
             </div>
@@ -134,12 +134,38 @@
                     <div>ou en retrait de commande aux emplacements de...</div>
                 </div>
 
-                <div class="uk-animation-toggle uk-width-2-3@s" tabindex="0">
-                    <a target="_blank"
-                        href="https://www.facebook.com/people/La-remorque-%C3%A0-Pizza/100049475065753/"><img
-                            class="uk-background-secondary uk-padding-small uk-animation-shake"
-                            src="https://cdn.website.dish.co/media/53/10/1632971/La-Remorque-a-Pizza-logo-LaRemorqueaPizza-blanc-site.jpg" /></a>
-                    <div>Echavanne | Etobon | Brognard | Lomont | Andornay</div>
+                <div class="uk-width-2-3@s">
+                    <div class="uk-animation-toggle" tabindex="0">
+                        <a target="_blank"
+                            href="https://www.facebook.com/people/La-remorque-%C3%A0-Pizza/100049475065753/"><img
+                                class="uk-background-secondary uk-padding-small uk-animation-shake"
+                                src="https://cdn.website.dish.co/media/53/10/1632971/La-Remorque-a-Pizza-logo-LaRemorqueaPizza-blanc-site.jpg" /></a>
+                    </div>
+
+                    <div class="uk-grid uk-flex-center uk-grid-small uk-grid-divider" uk-grid>
+                        <div>
+                            <a target="_blank"
+                                href="https://www.google.com/maps/search/?api=1&query=47.6572863,6.7324296">Echavanne</a>
+                        </div>
+
+                        <div>
+                            <a target="_blank"
+                                href="https://www.google.com/maps/search/?api=1&query=47.642833,6.675242">Etobon</a>
+                        </div>
+                        <div>
+                            <a target="_blank"
+                                href="https://www.google.com/maps/search/?api=1&query=47.5297736,6.8676568">Brognard</a>
+                        </div>
+                        <div>
+                            <a target="_blank"
+                                href="https://www.google.com/maps/search/?api=1&query=47.6246258,6.613931099999999">Lomont</a>
+                        </div>
+                        <div>
+                            <a target="_blank"
+                                href="https://www.google.com/maps/search/?api=1&query=47.6557099,6.5921185">Andornay</a>
+                        </div>
+                    </div>
+
                     <div class="uk-width-expand@s"><strong>Commande par SMS avant 13h</strong></div>
                 </div>
 
@@ -152,10 +178,13 @@
                 </div>
 
                 <div>
-                    <div><a href="https://www.google.com/maps/search/?api=1&query=La%20ch%C3%A8vre%20Grisette"><span>&#128235;</span> 10 rue haute, 70400 ECHAVANNE</a></div>
+                    <div><a href="https://www.google.com/maps/search/?api=1&query=La%20ch%C3%A8vre%20Grisette"><span>&#128235;</span>
+                            10 rue haute, 70400 ECHAVANNE</a></div>
                     <div><a href="tel:+33749675882"><span>&#128241;</span> 07.49.67.58.82</a></div>
-                    <div><a href="mailto:bonjour@lachevregrisette.fr"><span>&#128231;</span> bonjour@lachevregrisette.fr</a></div>
-                    <div><a href="https://www.lachevregrisette.fr"><span>&#127760;</span> www.lachevregrisette.fr</a></div>
+                    <div><a href="mailto:bonjour@lachevregrisette.fr"><span>&#128231;</span>
+                            bonjour@lachevregrisette.fr</a></div>
+                    <div><a href="https://www.lachevregrisette.fr"><span>&#127760;</span> www.lachevregrisette.fr</a>
+                    </div>
                 </div>
             </div>
 
@@ -180,9 +209,10 @@
                     </div>
                 </div>
 
-                <div class="uk-width-expand@s">
+                <div class="uk-width-expand@s uk-margin-bottom">
                     <hr class="uk-divider-small">
-                    <p class="uk-text-small">Fait avec &#10084; par <a target="_blank" href="https://github.com/bigbrozer">bigbrozer</a></p>
+                    <p class="uk-text-small">Fait avec &#10084; par <a target="_blank"
+                            href="https://github.com/bigbrozer">bigbrozer</a></p>
                 </div>
             </div>
         </div>
