@@ -18,6 +18,12 @@
     dest: "{{ maintenance_build_dir.path }}/.htaccess"
     mode: "0644"
 
+- name: "Préparation des robots"
+  ansible.builtin.template:
+    src: "robots.txt.j2"
+    dest: "{{ maintenance_build_dir.path }}/robots.txt"
+    mode: "0644"
+
 - name: "Copie de la page de maintenance sur OVH"
   ansible.builtin.shell: |
     rclone copy "{{ maintenance_build_dir.path }}" ovh:/home/{{ ovh_sftp_username }}/www
