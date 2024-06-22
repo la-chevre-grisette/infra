@@ -23,5 +23,9 @@ managed = true
 virtual = true
 dev-dependencies = []
 
+[tool.rye.scripts]
+deploy = { cmd = "ansible-runner run . -p site.yaml", env-file = ".env" }
+test = { cmd = "python -m http.server -d project/roles/maintenance/files 8000" }
+
 [tool.hatch.metadata]
 allow-direct-references = true

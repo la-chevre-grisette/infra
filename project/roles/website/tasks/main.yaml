@@ -1,14 +1,14 @@
 ---
 - name: "Création du répertoire de construction de maintenance"
   ansible.builtin.file:
-    path: "{{ setup_build_dir.path }}/maintenance"
+    path: "{{ setup_build_dir.path }}/website"
     state: "directory"
     mode: "0755"
   register: "maintenance_build_dir"
 
 - name: "Préparation de la page de maintenance"
-  ansible.builtin.template:
-    src: "index.html.j2"
+  ansible.builtin.copy:
+    src: "index.html"
     dest: "{{ maintenance_build_dir.path }}/index.html"
     mode: "0644"
 

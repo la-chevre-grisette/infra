@@ -28,7 +28,7 @@ rye sync
 Lancer le déploiement ou la mise à jour de l'infrastructure:
 
 ```sh
-rye run ansible-runner run . -p site.yaml
+rye run deploy
 ```
 
 ## Licences
