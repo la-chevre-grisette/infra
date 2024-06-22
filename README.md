@@ -15,15 +15,12 @@
 Ce projet nécessite les logiciels suivants:
 
 * [`rclone`](https://rclone.org/)
-* [`pyenv`](https://github.com/pyenv/pyenv)
-* [`poetry`](https://github.com/python-poetry/poetry)
-  * [`poetry-plugin-dotenv`](https://github.com/volopivoshenko/poetry-plugin-dotenv)
+* [`rye`](https://rye.astral.sh/)
 
 Une fois tous ces éléments installés et configurés, installer les dépendances:
 
 ```sh
-pyenv install
-poetry install
+rye sync
 ```
 
 ## Déploiement
@@ -31,7 +28,7 @@ poetry install
 Lancer le déploiement ou la mise à jour de l'infrastructure:
 
 ```sh
-poetry run ansible-runner run . -p site.yaml
+rye run ansible-runner run . -p site.yaml
 ```
 
 ## Licences

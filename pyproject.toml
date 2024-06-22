@@ -1,21 +1,27 @@
-[tool.poetry]
+[project]
 name = "la-chevre-grisette"
 version = "1.0.0"
 description = "La chèvre Grisette"
-authors = ["La chèvre Grisette <bonjour@lachevregrisette.fr>"]
-license = "CC-BY-SA"
+authors = [
+    {name = "La chèvre Grisette", email = "bonjour@lachevregrisette.fr"},
+]
+license = {file = "LICENCE.md"}
 readme = "README.md"
-package-mode = false
+requires-python = ">= 3.11"
 
-[tool.poetry.dependencies]
-python = "^3.11"
-ansible-runner = "^2.3.3"
-ansible = "^8.2.0"
-
-[tool.poetry.group.dev.dependencies]
-black = "^23.7.0"
-ruff = "^0.0.282"
+dependencies = [
+    "ansible-runner~=2.3.3",
+    "ansible~=8.2.0"
+]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+virtual = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
